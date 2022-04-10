@@ -1,9 +1,9 @@
 #Tarea 1
 
-#Menu de libros
+
 from typing import List
 
-
+#Menu de libros
 def menu():
     print ("Listado de libros a utilizar")
     print ("\t1 - El_Arbol_de_la_Colina")
@@ -26,6 +26,9 @@ Repeticiones = 0
 Espacios = 0
 Numero_Caracteres_Con_Espacio=0
 Numero_Palabras=0
+#Declaracion de listas
+Lista_Palabras = list()
+Lista_Filas = list()
 menu()
 opcionMenu = input("Seleccione un número: ")
 print ("\n")
@@ -36,14 +39,12 @@ if opcionMenu=="1":
     opciónMenu2 = input("Escriba el numero: ")
     print ("\n")
     if opciónMenu2=="1":
-        Lista_Palabras = list()
         for x in a:
             if "\n" in x:
                 Numero_Lineas += 1
             Espacios += x.count(" ")
             Numero_Palabras += len(x.split())
             Lista_Palabras += x.split()
-            print(Lista_Palabras)
             Numero_Caracteres_Con_Espacio += len(x)
         for aux in range(len(Lista_Palabras)):
             Palabra_comparar=Lista_Palabras[aux]
@@ -69,7 +70,15 @@ if opcionMenu=="1":
         print("La palabra", Palabra_Buscada, "se repite", Repeticiones, "veces")
 
     elif  opciónMenu2=="3":
-        Palabra = input("Ingrese la palabra que desea cambiar: ")
+        Palabra1 = input("Ingrese la palabra que desea cambiar: ")
+        Palabra2 = input("Ingrese la palabra que irá en el texto: ")              
+        for x in a:            
+            Lista_Filas.append(x)
+            Lista_Palabras += x.split()
+        var = Lista_Palabras.count(Palabra1)        
+        if var==0:
+            print("No se escuentra la palabra que desea cambiar")
+                        
     print ("\n")
 
 
