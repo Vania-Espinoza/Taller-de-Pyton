@@ -1,6 +1,7 @@
 #Tarea 1
 
-
+import sys
+import fileinput
 from typing import List
 
 #Menu de libros
@@ -37,7 +38,7 @@ opcionMenu = menu()
 print ("\n")
 
 if opcionMenu=="1":
-    a  = open("El_Arbol_de_la_Colina.txt","rt",encoding="utf-8")
+    a  = open("El_Arbol_de_la_Colina.txt","r+",encoding="utf-8")
     opciónMenu2 = menu2()    
     print ("\n")
     if opciónMenu2=="1":
@@ -75,15 +76,15 @@ if opcionMenu=="1":
         Palabra1 = input("Ingrese la palabra que desea cambiar: ")
         Palabra2 = input("Ingrese la palabra que irá en el texto: ")              
         for x in a:            
-            Lista_Filas.append(x)
             Lista_Palabras += x.split()
         var = Lista_Palabras.count(Palabra1)        
         if var==0:
             print("No se escuentra la palabra que desea cambiar")
-                        
-    print ("\n")
-
-
+        elif var >= 1:
+            for x in fileinput.input(files = "El_Arbol_De_La_Colina.txt",encoding="utf-8"):
+                x = x.replace(Palabra1,Palabra2)
+                sys.stdout.write(x)
+    print("\n")
 if opcionMenu=="2":
     archivo = open("El_Caos_Reptante.txt", "rt", encoding="utf-8")
     menu2()
