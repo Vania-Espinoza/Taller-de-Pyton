@@ -1,4 +1,4 @@
-#Tarea 1
+#Tarea 1    Franco Paredes - Vania Espinoza
 
 import sys
 import fileinput
