@@ -13,6 +13,7 @@ def menu():
     print ("\t5 - Para_Leer_Al_Atardecer")
     print ("\t6 - Una_corta_historia_del_eBook")
     print ("\t7 - Salir")
+    return input("Seleccione un número: ")
 #Menu de opciones
 def menu2():
     print ("¿Qué desea hacer con el libro seleccionado?")
@@ -20,6 +21,7 @@ def menu2():
     print ("\t2 - Buscar una palabra y ver cuantas veces se repite")
     print ("\t3 - Remplazar una palabra en el texto")
     print ("\t4 - Salir")
+    return input("Escriba el numero: ")
 #Declaracion de variables de conteo
 Numero_Lineas = 0
 Repeticiones = 0
@@ -29,14 +31,14 @@ Numero_Palabras=0
 #Declaracion de listas
 Lista_Palabras = list()
 Lista_Filas = list()
-menu()
-opcionMenu = input("Seleccione un número: ")
+
+opcionMenu = menu()
+
 print ("\n")
 
 if opcionMenu=="1":
     a  = open("El_Arbol_de_la_Colina.txt","rt",encoding="utf-8")
-    menu2()
-    opciónMenu2 = input("Escriba el numero: ")
+    opciónMenu2 = menu2()    
     print ("\n")
     if opciónMenu2=="1":
         for x in a:
