@@ -23,22 +23,17 @@ def menu2():
     print ("\t3 - Remplazar una palabra en el texto")
     print ("\t4 - Salir")
     return input("Escriba el numero: ")
-#Declaracion de variables de conteo
-Numero_Lineas = 0
-Repeticiones = 0
-Espacios = 0
-Numero_Caracteres_Con_Espacio=0
-Numero_Palabras=0
-#Declaracion de listas
-Lista_Palabras = list()
-Lista_Filas = list()
-
-opcionMenu = menu()
-
-print ("\n")
-
-if opcionMenu=="1":
-    a  = open("El_Arbol_de_la_Colina.txt","r+",encoding="utf-8")
+def start(name_text):
+    #Declaracion de listas
+    Lista_Palabras = list()
+    Lista_Filas = list()
+    #Declaracion de variables de conteo
+    Numero_Lineas = 0
+    Repeticiones = 0
+    Espacios = 0
+    Numero_Caracteres_Con_Espacio=0
+    Numero_Palabras=0
+    a  = open(name_text,"r+",encoding="utf-8")
     opciónMenu2 = menu2()    
     print ("\n")
     if opciónMenu2=="1":
@@ -81,37 +76,29 @@ if opcionMenu=="1":
         if var==0:
             print("No se escuentra la palabra que desea cambiar")
         elif var >= 1:
-            for x in fileinput.input(files = "El_Arbol_De_La_Colina.txt",encoding="utf-8"):
+            for x in fileinput.input(files = name_text,encoding="utf-8"):
                 x = x.replace(Palabra1,Palabra2)
                 sys.stdout.write(x)
     print("\n")
-if opcionMenu=="2":
-    archivo = open("El_Caos_Reptante.txt", "rt", encoding="utf-8")
-    menu2()
-    opciónMenu2 = input("Escriba el numero: ")
-    print ("\n")
-    datos = archivo.read()
-    palabras = datos.split()
-    for x in datos:
-        if "\n" in x:
-            Numero_Lineas += 1
-    print("El numero de lineas es: ",Numero_Lineas)
-    print('Número de palabras en el archivo de texto :', len(palabras))
-    print ("\n")
 
+opcionMenu = menu()
 
-if opcionMenu=="3":
-    archivo = open("En_El_Mar_Remoto.txt", "rt")
-    menu2()
-    opciónMenu2 = input("Escriba el numero: ")
-    datos = archivo.read()
-    palabras = datos.split()
-    Numero_Lineas=0
-    for x in datos:
-        if "\n" in x:
-            Numero_Lineas += 1
-    print("El numero de lineas es: ",Numero_Lineas)
-    print('Número de palabras en el archivo de texto :', len(palabras))
 print ("\n")
 
+if opcionMenu=="1":
+    start("El_Arbol_De_La_Colina.txt")
+    
+elif opcionMenu=="2":
+    start("El_Caos_Reptante.txt")
 
+elif opcionMenu=="3":
+    start("En_El_Mar_Remoto.txt")
+
+elif opcionMenu=="4":
+    start("Lazarillo_de_Tormes.txt")
+    
+elif opcionMenu=="5":
+    start("Para_Leer_Al_Atardecer.txt")
+
+elif opcionMenu=="6":
+    start("Una_corta_historia_del_eBook.txt")
